@@ -1,0 +1,15 @@
+# Org-wide supply-chain gate: fails PRs that introduce npm packages published
+# less than min-age-days ago. Applied to repos via org ruleset "Require
+# workflows to pass". Repos without a JS lockfile pass automatically.
+name: package-age-check
+on:
+  pull_request:
+
+jobs:
+  package-age:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: 3PLogic/rc_action_package_age_check@v1
+        with:
+          min-age-days: 3
