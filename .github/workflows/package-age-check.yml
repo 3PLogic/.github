@@ -9,7 +9,7 @@ jobs:
   package-age:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: 3PLogic/rc_action_package_age_check@v1
         with:
           min-age-days: 3
